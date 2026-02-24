@@ -1,0 +1,175 @@
+import React from 'react';
+import { motion } from 'motion/react';
+import { Link } from 'react-router';
+import { Play, CheckCircle2, ArrowRight } from 'lucide-react';
+
+export function Products() {
+  const products = [
+    {
+      id: "platform-1",
+      title: "无人机考题+接单平台",
+      subtitle: "飞手培育与任务调度中心",
+      description: "汇聚全网最全无人机驾照考试题库，提供沉浸式模拟练习。结合海量真实派单需求，打造『考证-认证-接单-变现』的一站式飞手成长与商业变现平台。",
+      features: ["千人千面智能题库推题", "LBS实时飞手任务匹配", "区块链飞历认证系统"],
+      image: "https://images.unsplash.com/photo-1758598304121-1a877db9ddcc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwbW9ja3VwJTIwYXBwfGVufDF8fHx8MTc3MTgwNDc3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      reversed: false
+    },
+    {
+      id: "platform-2",
+      title: "一网通飞空域管理平台",
+      subtitle: "城市级低空交通指挥大脑",
+      description: "专为G端和B端打造的空域协同管理系统。支持动态空域申请、实时航迹追踪、防碰撞预警及气象数据叠加，实现百万级无人机在城市复杂环境下的安全有序飞行。",
+      features: ["3D数字孪生空域建模", "AI毫秒级航线冲突检测", "全域全天候态势感知"],
+      image: "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBkaWdpdGFsJTIwZGF0YXxlbnwxfHx8fDE3NzE4NjQ0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      reversed: true
+    },
+    {
+      id: "platform-3",
+      title: "无人机同城配送平台",
+      subtitle: "未来物流即时履约网络",
+      description: "面向新零售与医疗等高时效场景的空中物流调度系统。打通商家、末端起降场与调度中心，提供从接单到交付的自动驾驶物流全流程SaaS服务。",
+      features: ["多机型混编调度算法", "分钟级精准时效预测", "全链路自动温控与监控"],
+      image: "https://images.unsplash.com/photo-1647221597996-54f3d0f73809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcm9uZSUyMHBhY2thZ2UlMjBkZWxpdmVyeXxlbnwxfHx8fDE3NzE4NjQ0NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      reversed: false
+    }
+  ];
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100 } }
+  };
+
+  return (
+    <section id="products" className="py-32 bg-[#050505] relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#E5C05C]/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-[600px] h-[600px] bg-[#C69A3C]/5 rounded-full blur-[180px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md"
+            >
+              <span className="text-[#E5C05C] text-sm font-bold tracking-widest uppercase">Core Ecosystem</span>
+            </motion.div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">核心产品矩阵</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+              三大核心平台联动，构建从人才培育、空域协同到商业应用的全链路软件闭环。
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="space-y-40">
+          {products.map((product, idx) => (
+            <motion.div 
+              key={product.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className={`flex flex-col lg:flex-row gap-16 lg:gap-24 items-center ${product.reversed ? 'lg:flex-row-reverse' : ''}`}
+            >
+              {/* Image/GIF Area */}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                className="w-full lg:w-1/2"
+              >
+                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                  {/* Decorative corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#E5C05C]/50 rounded-tl-3xl z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#E5C05C]/50 rounded-br-3xl z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#E5C05C]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 mix-blend-overlay" />
+                  
+                  <motion.img 
+                    src={product.image} 
+                    alt={product.title}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.7 }}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
+                  />
+                  
+                  {/* GIF Demo Overlay */}
+                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] transition-all duration-500 group-hover:bg-black/20">
+                     <motion.div 
+                       whileHover={{ scale: 1.15, backgroundColor: "rgba(229,192,92,0.4)" }}
+                       whileTap={{ scale: 0.9 }}
+                       className="w-20 h-20 rounded-full bg-[#E5C05C]/20 flex items-center justify-center backdrop-blur-md border border-[#E5C05C]/40 mb-5 cursor-pointer shadow-[0_0_30px_rgba(229,192,92,0.3)] transition-all"
+                     >
+                        <Play className="w-8 h-8 text-[#E5C05C] ml-1 fill-current" />
+                     </motion.div>
+                     <span className="text-white/90 text-sm tracking-widest uppercase font-bold bg-black/60 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/20 shadow-xl">
+                       Software Demo GIF
+                     </span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Content Area */}
+              <div className="w-full lg:w-1/2 space-y-8">
+                <div>
+                  <h4 className="text-[#E5C05C] font-semibold text-sm md:text-base tracking-widest mb-3 uppercase flex items-center gap-2">
+                    <span className="w-8 h-1 bg-[#E5C05C] rounded-full" />
+                    {product.subtitle}
+                  </h4>
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">{product.title}</h3>
+                </div>
+                
+                <p className="text-gray-400 text-lg leading-relaxed">
+                  {product.description}
+                </p>
+
+                <motion.ul 
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="space-y-5"
+                >
+                  {product.features.map((feature, i) => (
+                    <motion.li key={i} variants={itemVariants} className="flex items-center gap-4 group cursor-default">
+                      <div className="w-8 h-8 rounded-full bg-[#E5C05C]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#E5C05C]/20 transition-colors">
+                        <CheckCircle2 className="w-5 h-5 text-[#E5C05C]" />
+                      </div>
+                      <span className="text-gray-300 font-medium group-hover:text-white transition-colors text-lg">{feature}</span>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+
+                <Link to={`/product/${product.id}`}>
+                  <motion.button 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-4 px-8 py-4 rounded-xl border-2 border-[#E5C05C]/30 text-[#E5C05C] font-bold text-lg hover:bg-[#E5C05C] hover:text-[#0A0A0A] hover:border-[#E5C05C] transition-all duration-300 shadow-[0_0_20px_rgba(229,192,92,0.1)] hover:shadow-[0_0_30px_rgba(229,192,92,0.4)] flex items-center gap-2 group"
+                  >
+                    深入了解
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
