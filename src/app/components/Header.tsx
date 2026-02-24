@@ -1,10 +1,10 @@
-import image_b8e448305bfc7639708ea5b782a1a13e70ff5073 from 'figma:asset/b8e448305bfc7639708ea5b782a1a13e70ff5073.png'
-import image_dce427af356b979ad8dc6558e9291fd8eedfe672 from 'figma:asset/dce427af356b979ad8dc6558e9291fd8eedfe672.png'
+import image_b8e448305bfc7639708ea5b782a1a13e70ff5073 from '@/assets/b8e448305bfc7639708ea5b782a1a13e70ff5073.png';
+import image_dce427af356b979ad8dc6558e9291fd8eedfe672 from '@/assets/dce427af356b979ad8dc6558e9291fd8eedfe672.png';
 import React from 'react';
 import { motion } from 'motion/react';
 import { Menu, X } from 'lucide-react';
-import logoImage from 'figma:asset/f1b9da011dbec66046095dae21ffc1c35f40a927.png';
-import headerLogoImage from 'figma:asset/2a3df2b6b53a473c2a0d922f3ca56e2978d59ad0.png';
+import logoImage from '@/assets/f1b9da011dbec66046095dae21ffc1c35f40a927.png';
+import headerLogoImage from '@/assets/b8e448305bfc7639708ea5b782a1a13e70ff5073.png';
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);

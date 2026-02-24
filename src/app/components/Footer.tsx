@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import logoImage from 'figma:asset/f1b9da011dbec66046095dae21ffc1c35f40a927.png';
+import logoImage from '@/assets/f1b9da011dbec66046095dae21ffc1c35f40a927.png';
 
 export function Footer() {
   return (
