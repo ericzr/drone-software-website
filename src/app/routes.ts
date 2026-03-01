@@ -12,4 +12,6 @@ export const router = createBrowserRouter([
       { path: "product/:id", Component: ProductDetail },
     ],
   },
-]);
+], {
+  basename: "/drone-software-website",
+});
