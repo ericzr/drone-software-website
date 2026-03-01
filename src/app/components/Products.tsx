@@ -2,13 +2,14 @@ import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
 import { Play, CheckCircle2, ArrowRight, X } from 'lucide-react';
+import { productsData } from '../data/products';
 
 type ProductItem = {
   id: string;
   title: string;
   subtitle: string;
   description: string;
-  features: string[];
+  features: Array<{ name: string; desc: string }>;
   image: string;
   reversed: boolean;
   demoVideo?: string;
@@ -16,38 +17,20 @@ type ProductItem = {
 
 export function Products() {
   const [previewProduct, setPreviewProduct] = React.useState<ProductItem | null>(null);
-  const products: ProductItem[] = [
-    {
-      id: "platform-1",
-      title: "无人机考题+接单平台",
-      subtitle: "飞手培育与任务调度中心",
-      description: "汇聚全网最全无人机驾照考试题库，提供沉浸式模拟练习。结合海量真实派单需求，打造『考证-认证-接单-变现』的一站式飞手成长与商业变现平台。",
-      features: ["千人千面智能题库推题", "LBS实时飞手任务匹配", "区块链飞历认证系统"],
-      image: "https://images.unsplash.com/photo-1758598304121-1a877db9ddcc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwbW9ja3VwJTIwYXBwfGVufDF8fHx8MTc3MTgwNDc3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      reversed: false,
-      demoVideo: "/mockup-video-1771917872902.mp4"
-    },
-    {
-      id: "platform-2",
-      title: "一网通飞空域管理平台",
-      subtitle: "城市级低空交通指挥大脑",
-      description: "专为G端和B端打造的空域协同管理系统。支持动态空域申请、实时航迹追踪、防碰撞预警及气象数据叠加，实现百万级无人机在城市复杂环境下的安全有序飞行。",
-      features: ["3D数字孪生空域建模", "AI毫秒级航线冲突检测", "全域全天候态势感知"],
-      image: "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBkaWdpdGFsJTIwZGF0YXxlbnwxfHx8fDE3NzE4NjQ0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      reversed: true,
-      demoVideo: "/mockup-video-1771918733097.mp4"
-    },
-    {
-      id: "platform-3",
-      title: "无人机同城配送平台",
-      subtitle: "未来物流即时履约网络",
-      description: "面向新零售与医疗等高时效场景的空中物流调度系统。打通商家、末端起降场与调度中心，提供从接单到交付的自动驾驶物流全流程SaaS服务。",
-      features: ["多机型混编调度算法", "分钟级精准时效预测", "全链路自动温控与监控"],
-      image: "https://images.unsplash.com/photo-1647221597996-54f3d0f73809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcm9uZSUyMHBhY2thZ2UlMjBkZWxpdmVyeXxlbnwxfHx8fDE3NzE4NjQ0NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      reversed: false,
-      demoVideo: "/同城配送.mp4"
-    }
-  ];
+  
+  // 从 productsData 构建产品列表，添加演示视频
+  const products: ProductItem[] = productsData.map((product, index) => ({
+    id: product.id,
+    title: product.title,
+    subtitle: product.subtitle,
+    description: product.description,
+    features: product.features,
+    image: product.image,
+    reversed: index % 2 === 1,
+    demoVideo: index === 0 ? '/drone-software-website/mockup-video-1771917872902.mp4' :
+              index === 1 ? '/drone-software-website/mockup-video-1771918733097.mp4' :
+              index === 2 ? '/drone-software-website/同城配送.mp4' : undefined
+  }));
 
   // Animation variants
   const containerVariants = {
@@ -196,7 +179,7 @@ export function Products() {
                       <div className="w-8 h-8 rounded-full bg-[#E5C05C]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#E5C05C]/20 transition-colors">
                         <CheckCircle2 className="w-5 h-5 text-[#E5C05C]" />
                       </div>
-                      <span className="text-gray-300 font-medium group-hover:text-white transition-colors text-lg">{feature}</span>
+                      <span className="text-gray-300 font-medium group-hover:text-white transition-colors text-lg">{feature.name}</span>
                     </motion.li>
                   ))}
                 </motion.ul>
