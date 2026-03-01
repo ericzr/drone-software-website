@@ -9,9 +9,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Company Intro */}
           <div className="lg:col-span-2 space-y-6">
-            <img src={logoImage} alt="大黄蜂" className="h-16 w-auto rounded-xl shadow-md" />
+            <img src={logoImage} alt="大航蜂" className="h-16 w-auto rounded-xl shadow-md" />
             <p className="text-gray-400 leading-relaxed max-w-md">
-              大黄蜂（飞行之家）致力于成为全球领先的无人机软件基础设施提供商。我们以深厚的技术积淀，构建低空经济的新底座，让每一次飞行更安全、更高效、更智能。
+              大航蜂（飞行之家）致力于成为全球领先的无人机软件基础设施提供商。我们以深厚的技术积淀，构建低空经济的新底座，让每一次飞行更安全、更高效、更智能。
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export function Footer() {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()} 大黄蜂 (Bumblebee Flight Home). All rights reserved.
+            &copy; {new Date().getFullYear()} 大航蜂 (Bumblebee Flight Home). All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-600 hover:text-[#E5C05C] text-sm transition-colors">隐私政策</a>

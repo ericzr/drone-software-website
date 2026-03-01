@@ -1,10 +1,22 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
-import { Play, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Play, CheckCircle2, ArrowRight, X } from 'lucide-react';
+
+type ProductItem = {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  features: string[];
+  image: string;
+  reversed: boolean;
+  demoVideo?: string;
+};
 
 export function Products() {
-  const products = [
+  const [previewProduct, setPreviewProduct] = React.useState<ProductItem | null>(null);
+  const products: ProductItem[] = [
     {
       id: "platform-1",
       title: "无人机考题+接单平台",
@@ -12,7 +24,8 @@ export function Products() {
       description: "汇聚全网最全无人机驾照考试题库，提供沉浸式模拟练习。结合海量真实派单需求，打造『考证-认证-接单-变现』的一站式飞手成长与商业变现平台。",
       features: ["千人千面智能题库推题", "LBS实时飞手任务匹配", "区块链飞历认证系统"],
       image: "https://images.unsplash.com/photo-1758598304121-1a877db9ddcc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwbW9ja3VwJTIwYXBwfGVufDF8fHx8MTc3MTgwNDc3NXww&ixlib=rb-4.1.0&q=80&w=1080",
-      reversed: false
+      reversed: false,
+      demoVideo: "/mockup-video-1771917872902.mp4"
     },
     {
       id: "platform-2",
@@ -21,7 +34,8 @@ export function Products() {
       description: "专为G端和B端打造的空域协同管理系统。支持动态空域申请、实时航迹追踪、防碰撞预警及气象数据叠加，实现百万级无人机在城市复杂环境下的安全有序飞行。",
       features: ["3D数字孪生空域建模", "AI毫秒级航线冲突检测", "全域全天候态势感知"],
       image: "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBkaWdpdGFsJTIwZGF0YXxlbnwxfHx8fDE3NzE4NjQ0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      reversed: true
+      reversed: true,
+      demoVideo: "/mockup-video-1771918733097.mp4"
     },
     {
       id: "platform-3",
@@ -30,7 +44,8 @@ export function Products() {
       description: "面向新零售与医疗等高时效场景的空中物流调度系统。打通商家、末端起降场与调度中心，提供从接单到交付的自动驾驶物流全流程SaaS服务。",
       features: ["多机型混编调度算法", "分钟级精准时效预测", "全链路自动温控与监控"],
       image: "https://images.unsplash.com/photo-1647221597996-54f3d0f73809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcm9uZSUyMHBhY2thZ2UlMjBkZWxpdmVyeXxlbnwxfHx8fDE3NzE4NjQ0NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      reversed: false
+      reversed: false,
+      demoVideo: "/同城配送.mp4"
     }
   ];
 
@@ -47,6 +62,14 @@ export function Products() {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100 } }
   };
+
+  React.useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPreviewProduct(null);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   return (
     <section id="products" className="py-32 bg-[#050505] relative overflow-hidden">
@@ -94,33 +117,56 @@ export function Products() {
                 className="w-full lg:w-1/2"
               >
                 <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group bg-[#111111] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                  {/* Decorative corner accents */}
-                  <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#E5C05C]/50 rounded-tl-3xl z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#E5C05C]/50 rounded-br-3xl z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#E5C05C]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 mix-blend-overlay" />
-                  
-                  <motion.img 
-                    src={product.image} 
-                    alt={product.title}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.7 }}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
-                  />
-                  
-                  {/* GIF Demo Overlay */}
-                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] transition-all duration-500 group-hover:bg-black/20">
-                     <motion.div 
-                       whileHover={{ scale: 1.15, backgroundColor: "rgba(229,192,92,0.4)" }}
-                       whileTap={{ scale: 0.9 }}
-                       className="w-20 h-20 rounded-full bg-[#E5C05C]/20 flex items-center justify-center backdrop-blur-md border border-[#E5C05C]/40 mb-5 cursor-pointer shadow-[0_0_30px_rgba(229,192,92,0.3)] transition-all"
-                     >
-                        <Play className="w-8 h-8 text-[#E5C05C] ml-1 fill-current" />
-                     </motion.div>
-                     <span className="text-white/90 text-sm tracking-widest uppercase font-bold bg-black/60 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/20 shadow-xl">
-                       Software Demo GIF
-                     </span>
-                  </div>
+                  {/* Decorative corner accents与渐变只在无视频时显示，避免切割视频中的手机画面 */}
+                  {(!('demoVideo' in product && product.demoVideo)) && (
+                    <>
+                      <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#E5C05C]/50 rounded-tl-3xl z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#E5C05C]/50 rounded-br-3xl z-30 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-[#E5C05C]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 mix-blend-overlay" />
+                    </>
+                  )}
+
+                  {('demoVideo' in product && product.demoVideo) ? (
+                    <button
+                      type="button"
+                      onClick={() => setPreviewProduct(product)}
+                      className="w-full h-full flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C05C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] rounded-3xl"
+                      aria-label={`点击放大预览 ${product.title} 演示视频`}
+                    >
+                      <video
+                        src={product.demoVideo}
+                        poster={product.image}
+                        className="w-full h-full object-contain bg-black pointer-events-none"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        aria-hidden
+                      />
+                    </button>
+                  ) : (
+                    <>
+                      <motion.img 
+                        src={product.image} 
+                        alt={product.title}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.7 }}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] transition-all duration-500 group-hover:bg-black/20">
+                        <motion.div 
+                          whileHover={{ scale: 1.15, backgroundColor: "rgba(229,192,92,0.4)" }}
+                          whileTap={{ scale: 0.9 }}
+                          className="w-20 h-20 rounded-full bg-[#E5C05C]/20 flex items-center justify-center backdrop-blur-md border border-[#E5C05C]/40 mb-5 cursor-pointer shadow-[0_0_30px_rgba(229,192,92,0.3)] transition-all"
+                        >
+                          <Play className="w-8 h-8 text-[#E5C05C] ml-1 fill-current" />
+                        </motion.div>
+                        <span className="text-white/90 text-sm tracking-widest uppercase font-bold bg-black/60 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/20 shadow-xl">
+                          Software Demo
+                        </span>
+                      </div>
+                    </>
+                  )}
                 </div>
               </motion.div>
 
@@ -170,6 +216,55 @@ export function Products() {
           ))}
         </div>
       </div>
+
+      {/* 沉浸式视频预览弹窗 */}
+      <AnimatePresence>
+        {previewProduct?.demoVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm"
+            onClick={() => setPreviewProduct(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${previewProduct.title} 演示视频预览`}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-6xl max-h-[90vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video
+                key={previewProduct.demoVideo}
+                src={previewProduct.demoVideo}
+                poster={previewProduct.image}
+                className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+              />
+              <button
+                type="button"
+                onClick={() => setPreviewProduct(null)}
+                className="absolute -top-12 right-0 p-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C05C]"
+                aria-label="关闭预览"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <p className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-white/70 text-sm whitespace-nowrap">
+                {previewProduct.title}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
