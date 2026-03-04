@@ -28,8 +28,9 @@ export function Products() {
     image: product.image,
     reversed: index % 2 === 1,
     demoVideo: index === 0 ? '/drone-software-website/mockup-video-1771917872902.mp4' :
-              index === 1 ? '/drone-software-website/mockup-video-1771918733097.mp4' :
-              index === 2 ? '/drone-software-website/同城配送.mp4' : undefined
+              index === 1 ? '/drone-software-website/drone-os-demo.mp4' :
+              index === 2 ? '/drone-software-website/mockup-video-1771918733097.mp4' :
+              index === 3 ? '/drone-software-website/同城配送.mp4' : undefined
   }));
 
   // Animation variants
