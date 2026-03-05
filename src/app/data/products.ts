@@ -8,7 +8,7 @@ export const productsData = [
     features: [
       { name: "智能题库+考试模拟", desc: "基于AI算法分析知识缺陷，提供个性化考题。" },
       { name: "LBS实时飞手任务匹配", desc: "结合距离，智能派发高优商业订单。" },
-      { name: "区块链飞历认证系统", desc: "上链认证飞行时间与任务评价，打造行业信用基石。" }
+      { name: "从考证到就业的全方位履历数据库", desc: "上链认证飞行时间与任务评价，打造行业信用基石。" }
     ],
     highlights: [
       { label: "题库全", desc: "覆盖CAAC、AOPA等权威执照题库" },
