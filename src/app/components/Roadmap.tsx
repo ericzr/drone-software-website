@@ -48,7 +48,7 @@ export function Roadmap() {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">战略发展规划</h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-              从底层架构到全球化生态，我们以清晰的战略路径，推动低空经济的爆发式增长。
+              从底层软件基础设施到行业应用生态，我们希望通过软件应用端作为润滑剂推动低空行业爆发增长。
             </p>
           </motion.div>
         </div>
