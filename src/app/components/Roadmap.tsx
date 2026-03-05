@@ -98,7 +98,7 @@ export function Roadmap() {
                       </span>
                       {phase.status === 'current' && (
                         <span className="px-3 py-1 rounded-full bg-[#E5C05C] text-[#0A0A0A] text-xs font-bold shadow-[0_0_10px_rgba(229,192,92,0.5)]">
-                          CURRENT
+                          当前阶段
                         </span>
                       )}
                     </div>
