@@ -54,6 +54,16 @@ export function Header() {
     }
   };
 
+  const isHome = location.pathname === '/';
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    if (isHome) {
+      e.preventDefault();
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,26 +80,45 @@ export function Header() {
             {navLinks.map((link) => {
               const sectionId = link.href.slice(1);
               const isActive = activeSection === sectionId;
-              return (
+              return isHome ? (
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, sectionId)}
                   className={`transition-colors duration-300 text-sm font-medium tracking-wide ${
                     isActive ? 'text-[#E5C05C]' : 'text-gray-300 hover:text-[#E5C05C]'
                   }`}
                 >
                   {link.name}
                 </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={`/${link.href}`}
+                  className={`transition-colors duration-300 text-sm font-medium tracking-wide text-gray-300 hover:text-[#E5C05C]`}
+                >
+                  {link.name}
+                </Link>
               );
             })}
           </nav>
           <div className="hidden md:flex">
-            <a
-              href="#contact"
-              className="px-6 py-2.5 rounded-full bg-[#E5C05C] hover:bg-[#C69A3C] text-[#0A0A0A] font-semibold text-sm transition-all duration-300 shadow-[0_0_15px_rgba(229,192,92,0.3)] hover:shadow-[0_0_20px_rgba(229,192,92,0.5)]"
-            >
-              合作咨询
-            </a>
+            {isHome ? (
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, 'contact')}
+                className="px-6 py-2.5 rounded-full bg-[#E5C05C] hover:bg-[#C69A3C] text-[#0A0A0A] font-semibold text-sm transition-all duration-300 shadow-[0_0_15px_rgba(229,192,92,0.3)] hover:shadow-[0_0_20px_rgba(229,192,92,0.5)]"
+              >
+                合作咨询
+              </a>
+            ) : (
+              <Link
+                to="/#contact"
+                className="px-6 py-2.5 rounded-full bg-[#E5C05C] hover:bg-[#C69A3C] text-[#0A0A0A] font-semibold text-sm transition-all duration-300 shadow-[0_0_15px_rgba(229,192,92,0.3)] hover:shadow-[0_0_20px_rgba(229,192,92,0.5)]"
+              >
+                合作咨询
+              </Link>
+            )}
           </div>
           <div className="md:hidden">
             <button
@@ -113,26 +142,45 @@ export function Header() {
             {navLinks.map((link) => {
               const sectionId = link.href.slice(1);
               const isActive = activeSection === sectionId;
-              return (
+              return isHome ? (
                 <a
                   key={link.name}
                   href={link.href}
                   className={`block px-3 py-3 text-base font-medium rounded-lg ${
                     isActive ? 'text-[#E5C05C] bg-white/5' : 'text-gray-300 hover:text-[#E5C05C] hover:bg-white/5'
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleNavClick(e, sectionId)}
                 >
                   {link.name}
                 </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={`/${link.href}`}
+                  className="block px-3 py-3 text-base font-medium rounded-lg text-gray-300 hover:text-[#E5C05C] hover:bg-white/5"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
               );
             })}
-            <a
-              href="#contact"
-              className="block w-full text-center mt-4 px-6 py-3 rounded-lg bg-[#E5C05C] text-[#0A0A0A] font-semibold"
-              onClick={() => setIsOpen(false)}
-            >
-              合作咨询
-            </a>
+            {isHome ? (
+              <a
+                href="#contact"
+                className="block w-full text-center mt-4 px-6 py-3 rounded-lg bg-[#E5C05C] text-[#0A0A0A] font-semibold"
+                onClick={(e) => handleNavClick(e, 'contact')}
+              >
+                合作咨询
+              </a>
+            ) : (
+              <Link
+                to="/#contact"
+                className="block w-full text-center mt-4 px-6 py-3 rounded-lg bg-[#E5C05C] text-[#0A0A0A] font-semibold"
+                onClick={() => setIsOpen(false)}
+              >
+                合作咨询
+              </Link>
+            )}
           </div>
         </motion.div>
       )}
