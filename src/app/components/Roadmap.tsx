@@ -43,7 +43,9 @@ export function Roadmap() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#E5C05C] font-semibold tracking-wider uppercase mb-4 block">Strategic Vision</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-md">
+              <span className="text-[#E5C05C] text-sm font-bold tracking-widest uppercase">Strategic Vision</span>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">战略发展规划</h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg">
               从底层架构到全球化生态，我们以清晰的战略路径，推动低空经济的爆发式增长。
