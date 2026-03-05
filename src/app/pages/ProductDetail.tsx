@@ -134,23 +134,6 @@ export function ProductDetail() {
           </motion.div>
         )}
 
-        {/* Stats Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32"
-        >
-          {product.stats.map((stat, idx) => (
-            <div key={idx} className="p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05] backdrop-blur-sm flex flex-col items-center justify-center text-center">
-              <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#E5C05C] to-[#C69A3C] mb-2">
-                {stat.value}
-              </div>
-              <div className="text-gray-400 font-medium uppercase tracking-wider">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
-
         {/* 模块三：软件亮点说明 + 右侧规划面板 */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-32">
           <motion.div 
