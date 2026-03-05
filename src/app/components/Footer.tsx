@@ -11,7 +11,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <img src={logoImage} alt="大航蜂" className="h-16 w-auto rounded-xl shadow-md" />
             <p className="text-gray-400 leading-relaxed max-w-md">
-              大航蜂（飞行之家）致力于成为全球领先的无人机软件基础设施提供商。我们以深厚的技术积淀，构建低空经济的新底座，让每一次飞行更安全、更高效、更智能。
+              深圳云届低空科技有限公司致力于成为全球领先的无人机软件基础设施提供商。我们以深厚的技术积淀，构建低空经济的新底座，让每一次飞行更安全、更高效、更智能。
             </p>
           </div>
 
@@ -35,7 +35,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 text-[#E5C05C] flex-shrink-0 mt-0.5" />
-                <span>中国·科技创新区<br/>未来天空枢纽大厦 88F</span>
+                <span>中国·深圳</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#E5C05C] flex-shrink-0" />
@@ -43,7 +43,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-[#E5C05C] flex-shrink-0" />
-                <span>partner@bumblebee-flight.com</span>
+                <span>ericzrz@163.com</span>
               </li>
             </ul>
           </div>
@@ -51,7 +51,7 @@ export function Footer() {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()} 大航蜂 (Bumblebee Flight Home). All rights reserved.
+            &copy; {new Date().getFullYear()} 深圳云届低空科技有限公司. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-600 hover:text-[#E5C05C] text-sm transition-colors">隐私政策</a>

@@ -79,7 +79,7 @@ export function Products() {
             </motion.div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">核心产品矩阵</h2>
             <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
-              三大核心平台联动，构建从人才培育、空域协同到商业应用的全链路软件闭环。
+              四大核心平台联动，构建从人才培育、企业数字化、空域协同到分布式物流的全链路软件闭环。
             </p>
           </motion.div>
         </div>
