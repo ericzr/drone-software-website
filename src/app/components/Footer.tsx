@@ -11,7 +11,7 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-6">
             <img src={logoImage} alt="大航蜂" className="h-16 w-auto rounded-xl shadow-md" />
             <p className="text-gray-400 leading-relaxed max-w-md">
-              深圳云届低空科技有限公司致力于成为全球领先的无人机软件基础设施提供商。我们以深厚的技术积淀，构建低空经济的新底座，让每一次飞行更安全、更高效、更智能。
+              深圳云界空域科技有限公司致力于成为全球领先的无人机软件基础设施提供商。我们以深厚的技术积淀，构建低空经济的新底座，让每一次飞行更安全、更高效、更智能。
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export function Footer() {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-sm">
-            &copy; {new Date().getFullYear()} 深圳云届低空科技有限公司. All rights reserved.
+            &copy; {new Date().getFullYear()} 深圳云界空域科技有限公司. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-gray-600 hover:text-[#E5C05C] text-sm transition-colors">隐私政策</a>
