@@ -56,7 +56,7 @@ export const productsData = [
         { phase: "2027 年", desc: "全面开放 PaaS 底层架构与第三方开发者 API" }
       ]
     },
-    ctaButtons: ["申请演示", "预约技术专家"],
+    ctaButtons: ["进入官网", "预约技术专家"],
     slogan: "深度打通行业各应用要素，实现业务端数据无缝流转，让无人机任务可规划、易管理、看得见",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTYWFTJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc3MTg2NDQ1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     stats: [
