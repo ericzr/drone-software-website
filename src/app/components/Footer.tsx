@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import logoImage from '@/assets/f1b9da011dbec66046095dae21ffc1c35f40a927.png';
+import logoImage from '@/assets/dahangfeng-logo.png';
 
 export function Footer() {
   return (
@@ -39,7 +39,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Phone className="w-5 h-5 text-[#E5C05C] flex-shrink-0" />
-                <span>400-888-9999</span>
+                <span>19901600244</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400">
                 <Mail className="w-5 h-5 text-[#E5C05C] flex-shrink-0" />
