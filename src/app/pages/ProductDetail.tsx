@@ -114,7 +114,6 @@ export function ProductDetail() {
                 >
                   <video
                     src={demoVideo}
-                    poster={product.image}
                     className="w-full h-full object-contain bg-black pointer-events-none"
                     autoPlay muted loop playsInline aria-hidden
                   />
@@ -264,7 +263,6 @@ export function ProductDetail() {
             <video
               key={demoVideo}
               src={demoVideo}
-              poster={product.image}
               className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
               autoPlay muted loop playsInline controls
             />

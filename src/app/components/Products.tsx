@@ -5,8 +5,8 @@ import { Play, CheckCircle2, ArrowRight, X } from 'lucide-react';
 import { productsData } from '../data/products';
 
 /** 视口内才加载和播放的懒加载视频组件 */
-function LazyVideo({ src, poster, className, ariaHidden }: {
-  src: string; poster: string; className: string; ariaHidden?: boolean;
+function LazyVideo({ src, className, ariaHidden }: {
+  src: string; className: string; ariaHidden?: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
@@ -31,7 +31,6 @@ function LazyVideo({ src, poster, className, ariaHidden }: {
     <video
       ref={ref}
       src={inView ? src : undefined}
-      poster={poster}
       className={className}
       preload="none"
       autoPlay={inView}
@@ -158,7 +157,6 @@ export function Products() {
                     >
                       <LazyVideo
                         src={product.demoVideo}
-                        poster={product.image}
                         className="w-full h-full object-contain bg-black pointer-events-none"
                         ariaHidden
                       />
@@ -261,7 +259,6 @@ export function Products() {
               <video
                 key={previewProduct.demoVideo}
                 src={previewProduct.demoVideo}
-                poster={previewProduct.image}
                 className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-xl shadow-2xl"
                 autoPlay
                 muted
