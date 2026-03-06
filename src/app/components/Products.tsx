@@ -1,8 +1,47 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
 import { Play, CheckCircle2, ArrowRight, X } from 'lucide-react';
 import { productsData } from '../data/products';
+
+/** 视口内才加载和播放的懒加载视频组件 */
+function LazyVideo({ src, poster, className, ariaHidden }: {
+  src: string; poster: string; className: string; ariaHidden?: boolean;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={inView ? src : undefined}
+      poster={poster}
+      className={className}
+      preload="none"
+      autoPlay={inView}
+      muted
+      loop
+      playsInline
+      aria-hidden={ariaHidden}
+    />
+  );
+}
 
 type ProductItem = {
   id: string;
@@ -117,15 +156,11 @@ export function Products() {
                       className="w-full h-full flex items-center justify-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E5C05C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111111] rounded-3xl"
                       aria-label={`点击放大预览 ${product.title} 演示视频`}
                     >
-                      <video
+                      <LazyVideo
                         src={product.demoVideo}
                         poster={product.image}
                         className="w-full h-full object-contain bg-black pointer-events-none"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        aria-hidden
+                        ariaHidden
                       />
                     </button>
                   ) : (
