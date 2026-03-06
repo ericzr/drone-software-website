@@ -19,7 +19,7 @@ export const productsData = [
       title: "产品迭代规划",
       items: [
         { phase: "v1.0", desc: "覆盖全国百城主流航校，确立培训标准" },
-        { phase: "v2.0", desc: "上线AI智能考官、3D指尖模拟与自动打分系统" },
+        { phase: "v2.0", desc: "上线 3D 飞行模拟器、飞行报批、动态空域地图与微气象查询工具，打造起飞必备工具箱" },
         { phase: "v3.0", desc: "开放政企大客户批量用工外包 API 接口，实现灵活用工闭环" }
       ]
     },
