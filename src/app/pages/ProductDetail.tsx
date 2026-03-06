@@ -66,17 +66,34 @@ export function ProductDetail() {
             </p>
             
             <div className="flex gap-4">
-              {product.ctaButtons.map((btn, i) => (
-                <button
-                  key={i}
-                  className={i === 0
-                    ? "px-8 py-4 rounded-xl bg-[#E5C05C] text-[#0A0A0A] font-bold text-lg hover:bg-[#FFDF8A] transition-all duration-300 shadow-[0_0_20px_rgba(229,192,92,0.3)]"
-                    : "px-8 py-4 rounded-xl bg-white/5 text-white font-medium text-lg hover:bg-white/10 border border-white/10 transition-all duration-300"
-                  }
-                >
-                  {btn}
-                </button>
-              ))}
+              {product.ctaButtons.map((btn, i) => {
+                // Drone OS 的「申请演示」按钮跳转到演示平台
+                const isDroneOsDemo = product.id === 'platform-drone-os' && i === 0;
+                if (isDroneOsDemo) {
+                  return (
+                    <a
+                      key={i}
+                      href="https://ericzr.github.io/drone-os-demo/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-4 rounded-xl bg-[#E5C05C] text-[#0A0A0A] font-bold text-lg hover:bg-[#FFDF8A] transition-all duration-300 shadow-[0_0_20px_rgba(229,192,92,0.3)] inline-block"
+                    >
+                      {btn}
+                    </a>
+                  );
+                }
+                return (
+                  <button
+                    key={i}
+                    className={i === 0
+                      ? "px-8 py-4 rounded-xl bg-[#E5C05C] text-[#0A0A0A] font-bold text-lg hover:bg-[#FFDF8A] transition-all duration-300 shadow-[0_0_20px_rgba(229,192,92,0.3)]"
+                      : "px-8 py-4 rounded-xl bg-white/5 text-white font-medium text-lg hover:bg-white/10 border border-white/10 transition-all duration-300"
+                    }
+                  >
+                    {btn}
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
 
