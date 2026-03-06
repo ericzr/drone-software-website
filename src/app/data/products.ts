@@ -24,6 +24,7 @@ export const productsData = [
       ]
     },
     ctaButtons: ["申请演示", "查看开发文档"],
+    slogan: "致力于打造全国最大的百万级 CAAC 持证飞手商业赋能网络",
     image: "https://images.unsplash.com/photo-1758598304121-1a877db9ddcc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwbW9ja3VwJTIwYXBwfGVufDF8fHx8MTc3MTgwNDc3NXww&ixlib=rb-4.1.0&q=80&w=1080",
     stats: [
       { label: "活跃飞手", value: "120,000+" },
@@ -56,6 +57,7 @@ export const productsData = [
       ]
     },
     ctaButtons: ["申请演示", "预约技术专家"],
+    slogan: "深度打通行业各应用要素，实现业务端数据无缝流转，让无人机任务可规划、易管理、看得见",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTYWFTJTIwZGFzaGJvYXJkfGVufDF8fHx8MTc3MTg2NDQ1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
     stats: [
       { label: "行业模块", value: "10+" },
@@ -88,6 +90,7 @@ export const productsData = [
       ]
     },
     ctaButtons: ["申请政府版试用", "查阅建设方案"],
+    slogan: "为城市低空开放提供安全、合规、可信赖的数字化监管底座",
     image: "https://images.unsplash.com/photo-1759661966728-4a02e3c6ed91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBkaWdpdGFsJTIwZGF0YXxlbnwxfHx8fDE3NzE4NjQ0NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
     stats: [
       { label: "并发处理", value: "1,000,000+" },
@@ -120,6 +123,7 @@ export const productsData = [
       ]
     },
     ctaButtons: ["加入节点计划", "购买智能停机坪"],
+    slogan: "让同城万物 15 分钟极速达，开启去中心化空中共享物流新纪元",
     image: "https://images.unsplash.com/photo-1647221597996-54f3d0f73809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcm9uZSUyMHBhY2thZ2UlMjBkZWxpdmVyeXxlbnwxfHx8fDE3NzE4NjQ0NTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
     stats: [
       { label: "履约时效", value: "15分钟" },

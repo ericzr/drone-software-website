@@ -188,7 +188,7 @@ export function ProductDetail() {
               
               <div className="mt-8 p-4 rounded-xl bg-[#E5C05C]/10 border border-[#E5C05C]/20">
                 <p className="text-[#E5C05C] text-sm text-center font-medium">
-                  致力于打造全国最大的百万级 CAAC 持证飞手商业赋能网络
+                  {product.slogan}
                 </p>
               </div>
             </div>
