@@ -188,7 +188,7 @@ export function ProductDetail() {
               
               <div className="mt-8 p-4 rounded-xl bg-[#E5C05C]/10 border border-[#E5C05C]/20">
                 <p className="text-[#E5C05C] text-sm text-center font-medium">
-                  该平台已获得多项国家级低空经济基础设施技术认证
+                  致力于打造全国最大的百万级 CAAC 持证飞手商业赋能网络
                 </p>
               </div>
             </div>
